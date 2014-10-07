@@ -3,8 +3,9 @@ FROM ubuntu:14.04
 MAINTAINER sxend
 
 RUN \
-  yum update -y && \
-  yum upgrade -y
+  echo foo
+  #apt-get update -y && \
+  #apt-get upgrade -y
 
 
 CMD /bin/bash
