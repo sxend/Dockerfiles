@@ -18,7 +18,7 @@ deployment:
     branch: master
     commands:
       - exit 0
-  test:
-    branch: test
-    commands:
-      - export TAG=0.0.1 && ./build.sh $CIRCLE_USERNAME $CIRCLE_BRANCH $TAG
+#  example:
+#    branch: example
+#    commands:
+#      - export TAG=0.0.1 && ./build.sh $CIRCLE_USERNAME $CIRCLE_BRANCH $TAG
