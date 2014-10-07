@@ -19,10 +19,10 @@ deployment:
     commands:
       - exit 0
   ubuntu14.04:
-    branch: ubuntu14.04/.+
+    branch: /ubuntu14.04\/.*/
     commands:
       - ./build.sh $CIRCLE_USERNAME $CIRCLE_BRANCH
 #  example:
-#    branch: example
+#    branch: /example\/.*/
 #    commands:
-#      - export TAG=0.0.1 && ./build.sh $CIRCLE_USERNAME $CIRCLE_BRANCH $TAG
+#      - ./build.sh $CIRCLE_USERNAME $CIRCLE_BRANCH
