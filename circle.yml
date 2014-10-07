@@ -18,3 +18,10 @@ deployment:
     branch: master
     commands:
       - exit 0
+  test:
+    branch: test
+    environment:
+      version: 0.0.1
+    commands:
+      - echo $version
+      - cd $CIRCLE_BRANCH && docker build .
