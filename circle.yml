@@ -1,6 +1,6 @@
-machine:
-  service:
-    - docker
+#machine:
+#  service:
+#    - docker
 checkout:
   override:
     - git clone --branch $CIRCLE_BRANCH git@github.com:sxend/Dockerfiles.git
