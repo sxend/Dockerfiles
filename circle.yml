@@ -22,6 +22,10 @@ deployment:
     branch: /ubuntu14.04\/.*/
     commands:
       - ./build.sh $CIRCLE_USERNAME $CIRCLE_BRANCH
+  cassandra2.1.0:
+    branch: /cassandra2.1.0\/.*/
+    commands:
+      - ./build.sh $CIRCLE_USERNAME $CIRCLE_BRANCH
 #  example:
 #    branch: /example\/.*/
 #    commands:
