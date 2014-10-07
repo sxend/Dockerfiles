@@ -2,8 +2,11 @@
 set -eu
 
 USER=$1
-DIR=$2
-TAG=$3
+BRANCH=$2
+
+DIR=`echo $BRANCH | sed -e 's/\(.*\)\/\(.*\)/\1/'`
+
+TAG=`echo $BRANCH | sed -e 's/\(.*\)\/\(.*\)/\2/'`
 
 REPO_NAME=$USER/$DIR
 
