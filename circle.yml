@@ -1,0 +1,11 @@
+dependencies:
+  pre:
+#    - sed "s/<EMAIL>/$DOCKER_EMAIL/;s/<AUTH>/$DOCKER_AUTH/" < .dockercfg.template > ~/.dockercfg
+machine:
+  service:
+    - docker
+deployment:
+  master:
+    branch: master
+    commands:
+      - exit 0
