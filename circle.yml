@@ -1,14 +1,12 @@
-#machine:
-#  service:
-#    - docker
+machine:
+  services:
+     - docker
 checkout:
   override:
     - git clone --branch $CIRCLE_BRANCH git@github.com:sxend/Dockerfiles.git
 dependencies:
   override:
-    - echo dependencies setting
-#  pre:
-#    - sed "s/<EMAIL>/$DOCKER_EMAIL/;s/<AUTH>/$DOCKER_AUTH/" < .dockercfg.template > ~/.dockercfg
+    - sed "s/<EMAIL>/$DOCKER_EMAIL/;s/<AUTH>/$DOCKER_AUTH/" < .dockercfg.template > ~/.dockercfg
 database:
   override:
     - echo skip database
