@@ -1,4 +1,4 @@
-FROM sxend/ubuntu14.04
+FROM sxend/ubuntu14.04:1.0.1
 
 MAINTAINER sxend
 
