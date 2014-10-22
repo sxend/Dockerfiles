@@ -34,6 +34,10 @@ deployment:
     branch: /sonatype-nexus\/.*/
     commands:
       - ./build.sh $CIRCLE_USERNAME $CIRCLE_BRANCH
+  apache-archiva:
+    branch: /apache-archiva\/.*/
+    commands:
+      - ./build.sh $CIRCLE_USERNAME $CIRCLE_BRANCH
 #  example:
 #    branch: /example\/.*/
 #    commands:
