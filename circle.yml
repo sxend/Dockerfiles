@@ -30,6 +30,10 @@ deployment:
     branch: /nginx\/.*/
     commands:
       - ./build.sh $CIRCLE_USERNAME $CIRCLE_BRANCH
+  sonatype-nexus:
+    branch: /sonatype-nexus\/.*/
+    commands:
+      - ./build.sh $CIRCLE_USERNAME $CIRCLE_BRANCH
 #  example:
 #    branch: /example\/.*/
 #    commands:
