@@ -26,6 +26,10 @@ deployment:
     branch: /cassandra2.1.0\/.*/
     commands:
       - ./build.sh $CIRCLE_USERNAME $CIRCLE_BRANCH
+  cassandra2.1.2:
+    branch: /cassandra2.1.2\/.*/
+    commands:
+      - ./build.sh $CIRCLE_USERNAME $CIRCLE_BRANCH
   nginx:
     branch: /nginx\/.*/
     commands:
