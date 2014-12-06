@@ -18,6 +18,10 @@ deployment:
     branch: master
     commands:
       - exit 0
+  release:
+    tag: /release\/.*/
+    commands:
+      - exit 0
   ubuntu14.04:
     branch: /ubuntu14.04\/.*/
     commands:
