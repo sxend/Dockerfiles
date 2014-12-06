@@ -19,9 +19,9 @@ deployment:
     commands:
       - exit 0
   release:
-    tag: /release\/.*/
+    branch: /tag\/.*/
     commands:
-      - exit 0
+      - echo tag && exit 0
   ubuntu14.04:
     branch: /ubuntu14.04\/.*/
     commands:
