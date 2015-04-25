@@ -35,7 +35,7 @@ http {
     gzip_buffers 4 8k;
     gzip_min_length 1000;
     gzip_comp_level 1;
-    gzip_proxied off;
+    gzip_proxied any;
     gzip_disable "MSIE [1-6]\."  "Mozilla/4";
     gzip_vary off;
 
