@@ -14,7 +14,7 @@ RUN wget -O /tmp/openssl-1.0.2a.tar.gz https://www.openssl.org/source/openssl-1.
 RUN apt-get -y install libpcre3-dev openssl
 
 RUN cd /tmp/nginx-1.8.0 && \
-    ./configure --with-zlib=/tmp/zlib-1.2.8 --with-openssl=/tmp/openssl-1.0.2a && \
+    ./configure --with-zlib=/tmp/zlib-1.2.8 --with-openssl=/tmp/openssl-1.0.2a --with-http_ssl_module && \
     make && \
     make install
 
