@@ -12,4 +12,7 @@ RUN \
   echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections && \
   apt-get -y install oracle-java8-installer build-essential
 
-RUN apt-get -y install vim curl
+RUN apt-get -y install vim curl git
+
+RUN wget -qO- https://get.docker.com/ | sh
+
