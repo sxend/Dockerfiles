@@ -32,3 +32,9 @@ RUN cd /tmp/nghttp2-0.7.13 && \
 RUN cp /usr/local/lib/libnghttp2.so.5 /usr/lib/
 
 RUN cp /usr/local/lib/libspdylay.so.7 /usr/lib/
+
+RUN mkdir -p /etc/nghttpx && \
+    cp /tmp/nghttp2-0.7.13/nghttpx.conf.sample /etc/nghttpx/nghttpx.conf
+
+RUN cp /tmp/nghttp2-0.7.13/contrib/nghttpx-init /etc/init.d/nghttpx && \
+    update-rc.d nghttpx defaults
