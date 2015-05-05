@@ -46,6 +46,10 @@ deployment:
     branch: /apache-archiva\/.*/
     commands:
       - ./build.sh $CIRCLE_USERNAME $CIRCLE_BRANCH
+  nghttp2:
+    branch: /nghttp2\/.*/
+    commands:
+      - ./build.sh $CIRCLE_USERNAME $CIRCLE_BRANCH
 #  example:
 #    branch: /example\/.*/
 #    commands:
