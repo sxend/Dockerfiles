@@ -30,3 +30,5 @@ RUN cd /tmp/nghttp2-0.7.13 && \
     make install
 
 RUN cp /usr/local/lib/libnghttp2.so.5 /usr/lib/
+
+RUN cp /usr/local/lib/libspdylay.so.7 /usr/lib/
