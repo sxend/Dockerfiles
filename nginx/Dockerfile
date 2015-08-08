@@ -11,10 +11,10 @@ RUN wget -O /tmp/zlib-1.2.8.tar.gz http://zlib.net/zlib-1.2.8.tar.gz && \
 RUN wget -O /tmp/openssl-1.0.2a.tar.gz https://www.openssl.org/source/openssl-1.0.2a.tar.gz && \
     cd /tmp && tar xzf openssl-1.0.2a.tar.gz
 
-RUN apt-get -y install libpcre3-dev openssl
+RUN apt-get -y install libpcre3-dev openssl libreadline-dev
 
 RUN cd /tmp/nginx-1.8.0 && \
-    ./configure --with-zlib=/tmp/zlib-1.2.8 --with-openssl=/tmp/openssl-1.0.2a --with-http_spdy_module --with-http_ssl_module && \
+    ./configure --with-zlib=/tmp/zlib-1.2.8 --with-openssl=/tmp/openssl-1.0.2a --with-http_spdy_module --with-http_ssl_module --with-http_perl_module && \
     make && \
     make install
 
