@@ -11,7 +11,8 @@ RUN \
   yes | add-apt-repository ppa:openjdk-r/ppa && \
   apt-get -y update && \
   apt-get -y install wget && \
-  apt-get -y install openjdk-8-jdk build-essential
+  apt-get -y install build-essential && \
+  apt-get -y install --no-install-recommends openjdk-8-jdk
 
 RUN apt-get -y install vim curl git
 
