@@ -19,9 +19,9 @@ deployment:
     commands:
       - exit 0
   release:
-    branch: /tag\/.*/
+    tag: /.*/
     commands:
-      - echo tag && exit 0
+      - ./build.sh $CIRCLE_USERNAME $CIRCLE_BRANCH
   ubuntu14.04:
     branch: /ubuntu14.04\/.*/
     commands:
