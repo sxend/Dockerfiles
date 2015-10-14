@@ -2,23 +2,52 @@ FROM sxend/ubuntu14.04:1.0.4
 
 MAINTAINER sxend
 
-RUN wget -O /tmp/nginx-1.8.0.tar.gz http://nginx.org/download/nginx-1.8.0.tar.gz && \
-    cd /tmp && tar xzf nginx-1.8.0.tar.gz
+RUN wget -O /tmp/nginx-1.9.5.tar.gz http://nginx.org/download/nginx-1.9.5.tar.gz && \
+    cd /tmp && tar xzf nginx-1.9.5.tar.gz
 
-RUN wget -O /tmp/zlib-1.2.8.tar.gz http://zlib.net/zlib-1.2.8.tar.gz && \
-    cd /tmp && tar xzf zlib-1.2.8.tar.gz
+RUN apt-get -y update && \
+    apt-get -y install libssl-dev libpcre3 libpcre3-dev
 
-RUN wget -O /tmp/openssl-1.0.2a.tar.gz https://www.openssl.org/source/openssl-1.0.2a.tar.gz && \
-    cd /tmp && tar xzf openssl-1.0.2a.tar.gz
-
-RUN apt-get -y install libpcre3-dev openssl
-
-RUN cd /tmp/nginx-1.8.0 && \
-    ./configure --with-zlib=/tmp/zlib-1.2.8 --with-openssl=/tmp/openssl-1.0.2a --with-http_spdy_module --with-http_ssl_module && \
+RUN cd /tmp/nginx-1.9.5 && \
+    ./configure \
+    --prefix=/etc/nginx \
+    --sbin-path=/usr/sbin/nginx \
+    --conf-path=/etc/nginx/nginx.conf \
+    --error-log-path=/var/log/nginx/error.log \
+    --http-log-path=/var/log/nginx/access.log \
+    --pid-path=/var/run/nginx.pid \
+    --lock-path=/var/run/nginx.lock \
+    --http-client-body-temp-path=/var/cache/nginx/client_temp \
+    --http-proxy-temp-path=/var/cache/nginx/proxy_temp \
+    --http-fastcgi-temp-path=/var/cache/nginx/fastcgi_temp \
+    --http-uwsgi-temp-path=/var/cache/nginx/uwsgi_temp \
+    --http-scgi-temp-path=/var/cache/nginx/scgi_temp \
+    --with-http_ssl_module \
+    --with-http_realip_module \
+    --with-http_addition_module \
+    --with-http_sub_module \
+    --with-http_dav_module \
+    --with-http_flv_module \
+    --with-http_mp4_module \
+    --with-http_gunzip_module \
+    --with-http_gzip_static_module \
+    --with-http_random_index_module \
+    --with-http_secure_link_module \
+    --with-http_stub_status_module \
+    --with-http_auth_request_module \
+    --with-mail \
+    --with-mail_ssl_module \
+    --with-file-aio \
+    --with-http_v2_module \
+    --with-ipv6 \
+    --with-threads \
+    --with-stream \
+    --with-stream_ssl_module && \
+    mkdir -p /var/cache/nginx && \
     make && \
     make install
 
-RUN wget -O /etc/init.d/nginx https://raw.githubusercontent.com/sxend/nginx-init-ubuntu/1.8.0/nginx && \
+RUN wget -O /etc/init.d/nginx https://raw.githubusercontent.com/sxend/nginx-init-ubuntu/1.9.5/nginx && \
     chmod 755 /etc/init.d/nginx
 
 RUN update-rc.d nginx defaults
