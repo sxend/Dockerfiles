@@ -22,34 +22,10 @@ deployment:
     tag: /.*/
     commands:
       - ./build.sh $CIRCLE_USERNAME $CIRCLE_TAG
-  ubuntu14.04:
-    branch: /ubuntu14.04\/.*/
+  branches:
+    branch: /.*/
     commands:
-      - ./build.sh $CIRCLE_USERNAME $CIRCLE_BRANCH
-  cassandra2.1.0:
-    branch: /cassandra2.1.0\/.*/
-    commands:
-      - ./build.sh $CIRCLE_USERNAME $CIRCLE_BRANCH
-  cassandra2.1.2:
-    branch: /cassandra2.1.2\/.*/
-    commands:
-      - ./build.sh $CIRCLE_USERNAME $CIRCLE_BRANCH
-  nginx:
-    branch: /nginx\/.*/
-    commands:
-      - ./build.sh $CIRCLE_USERNAME $CIRCLE_BRANCH
-  sonatype-nexus:
-    branch: /sonatype-nexus\/.*/
-    commands:
-      - ./build.sh $CIRCLE_USERNAME $CIRCLE_BRANCH
-  apache-archiva:
-    branch: /apache-archiva\/.*/
-    commands:
-      - ./build.sh $CIRCLE_USERNAME $CIRCLE_BRANCH
-  nghttp2:
-    branch: /nghttp2\/.*/
-    commands:
-      - ./build.sh $CIRCLE_USERNAME $CIRCLE_BRANCH
+      - ./build.sh $CIRCLE_USERNAME $CIRCLE_BRANCH --dry-run
 #  example:
 #    branch: /example\/.*/
 #    commands:

@@ -3,6 +3,7 @@ set -eu
 
 USER=$1
 BRANCH=$2
+DRY_RUN=$3
 
 DIR=`echo $BRANCH | sed -e 's/\(.*\)\/\(.*\)/\1/'`
 
@@ -18,4 +19,6 @@ IMAGE_ID=`docker history -q $REPO_NAME | sed -n -e '1,1p'`
 
 docker tag $IMAGE_ID $REPO_NAME:$TAG
 
-docker push $REPO_NAME:$TAG
+if [ $DRY_RUN != "--dry-run" ] ; then
+  docker push $REPO_NAME:$TAG
+fi
