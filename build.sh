@@ -22,6 +22,6 @@ IMAGE_ID=`docker history -q $REPO_NAME | sed -n -e '1,1p'`
 
 docker tag $IMAGE_ID $REPO_NAME:$TAG
 
-if [ $DRY_RUN != "--dry-run" ] ; then
+if [ "$DRY_RUN" != "--dry-run" ] ; then
   docker push $REPO_NAME:$TAG
 fi
