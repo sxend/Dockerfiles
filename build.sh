@@ -3,7 +3,10 @@ set -eu
 
 USER=$1
 BRANCH=$2
+DRY_RUN=""
+if [ $# -eq 3 ]; then
 DRY_RUN=$3
+fi
 
 DIR=`echo $BRANCH | sed -e 's/\(.*\)\/\(.*\)/\1/'`
 
