@@ -46,8 +46,3 @@ RUN cd /tmp/nginx-1.9.9 && \
     mkdir -p /var/cache/nginx && \
     make && \
     make install
-
-RUN wget -O /etc/init.d/nginx https://raw.githubusercontent.com/sxend/nginx-init-ubuntu/1.9.9/nginx && \
-    chmod 755 /etc/init.d/nginx
-
-RUN update-rc.d nginx defaults
