@@ -1,14 +1,14 @@
-FROM sxend/ubuntu14.04:1.0.4
+FROM sxend/ubuntu14.04:1.0.6
 
 MAINTAINER sxend
 
-RUN wget -O /tmp/nginx-1.9.5.tar.gz http://nginx.org/download/nginx-1.9.5.tar.gz && \
-    cd /tmp && tar xzf nginx-1.9.5.tar.gz
+RUN wget -O /tmp/nginx-1.9.9.tar.gz http://nginx.org/download/nginx-1.9.9.tar.gz && \
+    cd /tmp && tar xzf nginx-1.9.9.tar.gz
 
 RUN apt-get -y update && \
     apt-get -y install libssl-dev libpcre3 libpcre3-dev
 
-RUN cd /tmp/nginx-1.9.5 && \
+RUN cd /tmp/nginx-1.9.9 && \
     ./configure \
     --prefix=/etc/nginx \
     --sbin-path=/usr/sbin/nginx \
@@ -47,7 +47,7 @@ RUN cd /tmp/nginx-1.9.5 && \
     make && \
     make install
 
-RUN wget -O /etc/init.d/nginx https://raw.githubusercontent.com/sxend/nginx-init-ubuntu/1.9.5/nginx && \
+RUN wget -O /etc/init.d/nginx https://raw.githubusercontent.com/sxend/nginx-init-ubuntu/1.9.9/nginx && \
     chmod 755 /etc/init.d/nginx
 
 RUN update-rc.d nginx defaults
