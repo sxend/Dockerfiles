@@ -2,14 +2,14 @@ FROM sxend/ubuntu14.04:1.0.5
 
 MAINTAINER sxend
 
-ENV CASSANDRA_HOME /opt/apache-cassandra-3.1.1
+ENV CASSANDRA_HOME /opt/apache-cassandra-3.3
 
 RUN \
   apt-get -y install gettext && \
   cd /tmp && \
-  wget http://ftp.riken.jp/net/apache/cassandra/3.1.1/apache-cassandra-3.1.1-bin.tar.gz && \
-  tar xzf apache-cassandra-3.1.1-bin.tar.gz && \
-  mv ./apache-cassandra-3.1.1 ${CASSANDRA_HOME} && \
+  wget http://ftp.riken.jp/net/apache/cassandra/3.3/apache-cassandra-3.3-bin.tar.gz && \
+  tar xzf apache-cassandra-3.3-bin.tar.gz && \
+  mv ./apache-cassandra-3.3 ${CASSANDRA_HOME} && \
   mkdir -p /var/lib/cassandra && \
   mkdir -p /var/log/cassandra
 
