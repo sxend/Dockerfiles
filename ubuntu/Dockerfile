@@ -5,7 +5,7 @@ MAINTAINER sxend
 RUN \
   apt-get -y update && \
   apt-get -y upgrade && \
-  apt-get -y install software-properties-common python-software-properties && \
+  apt-get -y install sudo software-properties-common python-software-properties && \
   add-apt-repository -y ppa:webupd8team/java && \
   apt-get -y update && \
   apt-get -y install wget && \
