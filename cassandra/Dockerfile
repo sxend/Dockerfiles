@@ -1,4 +1,4 @@
-FROM sxend/ubuntu:16.04.1
+FROM sxend/ubuntu:16.04.2
 
 MAINTAINER sxend
 
