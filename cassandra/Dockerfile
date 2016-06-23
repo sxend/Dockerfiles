@@ -1,20 +1,18 @@
-FROM sxend/ubuntu14.04:1.0.5
+FROM sxend/ubuntu:16.04.1
 
 MAINTAINER sxend
 
-ENV CASSANDRA_HOME /opt/apache-cassandra-3.3
+ENV CASSANDRA_HOME /opt/apache-cassandra-3.7
 
 RUN \
   apt-get -y install gettext && \
   cd /tmp && \
-  wget http://ftp.riken.jp/net/apache/cassandra/3.3/apache-cassandra-3.3-bin.tar.gz && \
-  tar xzf apache-cassandra-3.3-bin.tar.gz && \
-  mv ./apache-cassandra-3.3 ${CASSANDRA_HOME} && \
+  wget http://ftp.riken.jp/net/apache/cassandra/3.7/apache-cassandra-3.7-bin.tar.gz && \
+  tar xzf apache-cassandra-3.7-bin.tar.gz && \
+  mv ./apache-cassandra-3.7 ${CASSANDRA_HOME} && \
   mkdir -p /var/lib/cassandra && \
   mkdir -p /var/log/cassandra
 
-ADD ./cassandra.yaml.template ${CASSANDRA_HOME}/conf/cassandra.yaml.template
-
-ADD ./cassandra-start /opt/cassandra-start
-
 EXPOSE 7000 7001 9042 9160
+
+CMD ["/bin/bash"]
