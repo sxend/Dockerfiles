@@ -13,6 +13,8 @@ RUN \
   mkdir -p /var/lib/cassandra && \
   mkdir -p /var/log/cassandra
 
-EXPOSE 7000 7001 9042 9160
+ENV PATH $PATH:$CASSANDRA_HOME/bin
+
+EXPOSE 7000 7001 7199 9042 9160
 
 CMD ["/bin/bash"]
